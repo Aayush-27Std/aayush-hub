@@ -1,0 +1,121 @@
+## Midpoint Circle Generation Algorithm (Theory)
+
+The **Midpoint Circle Generation Algorithm** is a **raster graphics algorithm** used in computer graphics to draw a circle efficiently on a pixel-based display. It is widely used because it relies only on **integer arithmetic**, making it fast and accurate.
+
+
+## 1. Basic Idea
+
+A circle with center **(0, 0)** and radius **r** is mathematically defined as:
+
+[
+x^2 + y^2 = r^2
+]
+
+Instead of calculating every point using floating-point math, the midpoint algorithm **decides which pixel is closer to the true circle** at each step by evaluating a **decision parameter**.
+
+
+## 2. Symmetry of a Circle
+
+A circle is symmetric in **8 octants**.
+So, if we calculate points in **one octant**, the remaining points can be obtained by reflection.
+
+For a point ((x, y)), the other symmetric points are:
+
+* ((x, y)), ((y, x))
+* ((-x, y)), ((-y, x))
+* ((x, -y)), ((y, -x))
+* ((-x, -y)), ((-y, -x))
+
+This reduces computation by **8 times**.
+
+
+## 3. Starting Point
+
+The algorithm starts at:
+[
+(x_0, y_0) = (0, r)
+]
+
+We move from the **top of the circle toward the right**, calculating points until:
+[
+x \leq y
+]
+
+
+## 4. Decision Parameter
+
+To decide whether the next pixel should be:
+
+* **East (E):** ((x+1, y))
+  or
+* **South-East (SE):** ((x+1, y-1))
+
+we evaluate the midpoint between these two pixels.
+
+### Initial Decision Parameter:
+
+[
+p_0 = 1 - r
+]
+
+
+## 5. Decision Rules
+
+### Case 1: If (p_k < 0)
+
+* Midpoint is **inside** the circle
+* Choose **East (E)**
+* Update:
+  [
+  p_{k+1} = p_k + 2x + 3
+  ]
+
+### Case 2: If (p_k \geq 0)
+
+* Midpoint is **outside** the circle
+* Choose **South-East (SE)**
+* Update:
+  [
+  p_{k+1} = p_k + 2x - 2y + 5
+  ]
+* Decrease (y) by 1
+
+In both cases:
+[
+x = x + 1
+]
+
+
+## 6. Algorithm Steps (Summary)
+
+1. Input radius **r** and center ((x_c, y_c))
+2. Initialize:
+
+   * (x = 0), (y = r)
+   * (p = 1 - r)
+3. Plot the 8 symmetric points
+4. Repeat while (x \leq y):
+
+   * Update (x)
+   * Update (p) using decision rules
+   * Update (y) if needed
+   * Plot symmetric points
+5. Stop when (x > y)
+
+
+## 7. Advantages
+
+* Uses **only integer arithmetic**
+* Faster than trigonometric methods
+* High accuracy
+* Ideal for real-time graphics and hardware implementation
+
+
+## 8. Applications
+
+* Drawing circles in **computer graphics**
+* GUI components (buttons, icons)
+* Games and simulations
+* Embedded and low-level graphics systems
+
+
