@@ -1,0 +1,120 @@
+## Bresenham’s Line Drawing Algorithm – Theory
+
+**Bresenham’s algorithm** is an efficient raster graphics algorithm used to draw a straight line between two points on a pixel-based display (such as a computer screen). It determines which pixel should be plotted next so that the line appears as close as possible to a true straight line.
+
+---
+
+### 1. Why Bresenham’s Algorithm is Needed
+
+* A mathematical line is continuous, but a computer screen is made of **discrete pixels**.
+* Simply using the line equation ( y = mx + c ) involves **floating-point calculations**, which are slow and inefficient.
+* Bresenham’s algorithm uses **only integer arithmetic**, making it **fast and accurate**.
+
+---
+
+### 2. Basic Idea
+
+The algorithm works by:
+
+* Starting from one endpoint of the line
+* Moving pixel by pixel in the **x-direction** (or y-direction for steep lines)
+* At each step, choosing between **two possible pixels**:
+
+  * One directly to the right
+  * One diagonally to the right and up (or down)
+
+The choice is made using a **decision parameter** that measures how far the current pixel is from the ideal line.
+
+---
+
+### 3. Assumptions (for basic explanation)
+
+* Line is drawn from left to right
+* Slope ( m ) lies between **0 and 1**
+* Start point: ( (x_0, y_0) )
+* End point: ( (x_1, y_1) )
+
+Let:
+
+* ( dx = x_1 - x_0 )
+* ( dy = y_1 - y_0 )
+
+---
+
+### 4. Decision Parameter
+
+A **decision parameter ( p )** is used to decide which pixel to plot next.
+
+Initial decision parameter:
+[
+p_0 = 2dy - dx
+]
+
+At each step:
+
+* If ( p < 0 ):
+  Choose pixel **E** (East) → ( (x+1, y) )
+* If ( p \ge 0 ):
+  Choose pixel **NE** (North-East) → ( (x+1, y+1) )
+
+Update rules:
+
+* If E is chosen:
+  [
+  p_{k+1} = p_k + 2dy
+  ]
+* If NE is chosen:
+  [
+  p_{k+1} = p_k + 2(dy - dx)
+  ]
+
+---
+
+### 5. Working Principle (Step-by-Step)
+
+1. Calculate ( dx ), ( dy )
+2. Initialize decision parameter ( p_0 )
+3. Plot the starting pixel
+4. For each ( x ) from ( x_0 ) to ( x_1 ):
+
+   * Check decision parameter
+   * Select the appropriate pixel
+   * Update the decision parameter
+5. Continue until the end point is reached
+
+---
+
+### 6. Advantages
+
+* Uses **only integer calculations**
+* **Fast** and efficient
+* Produces smooth and accurate lines
+* Widely used in **computer graphics hardware**
+
+---
+
+### 7. Limitations
+
+* Original form works best when slope is between 0 and 1
+* Needs modification for:
+
+  * Steep lines (( m > 1 ))
+  * Negative slopes
+  * Different octants
+
+---
+
+### 8. Applications
+
+* Line drawing in **computer graphics**
+* CAD systems
+* Game development
+* GUI rendering
+* Raster display systems
+
+---
+
+### 9. Conclusion
+
+Bresenham’s line drawing algorithm is a cornerstone of computer graphics. By replacing floating-point math with integer decision parameters, it efficiently determines the best pixel positions to approximate a straight line on a raster display.
+
