@@ -1,0 +1,173 @@
+
+
+Ellipse Drawing Algorithm (Midpoint Ellipse Algorithm)
+
+Objective
+
+To draw an ellipse on a raster display efficiently using integer calculations and symmetry properties, minimizing computational cost.
+
+
+---
+
+Introduction
+
+An ellipse is a closed curve defined as the set of points for which the sum of distances from two fixed points (foci) is constant. In computer graphics, drawing an ellipse accurately and efficiently on a pixel-based display is important for rendering shapes such as circles, orbits, and design elements.
+
+The Midpoint Ellipse Drawing Algorithm is an efficient rasterization technique that determines which pixels best approximate an ellipse using decision parameters.
+
+
+---
+
+Mathematical Representation
+
+The standard equation of an ellipse centered at  is:
+
+\frac{x^2}{r_x^2} + \frac{y^2}{r_y^2} = 1
+
+where
+
+ = radius along x-axis
+
+ = radius along y-axis
+
+
+
+---
+
+Principle of the Algorithm
+
+The algorithm divides the ellipse into two regions based on slope:
+
+1. Region 1:
+Slope magnitude < 1
+Movement is primarily in the x-direction
+
+
+2. Region 2:
+Slope magnitude ≥ 1
+Movement is primarily in the y-direction
+
+
+
+At each step, a decision parameter determines whether the next pixel is chosen horizontally or diagonally.
+
+
+---
+
+Symmetry Property
+
+An ellipse is symmetric about both the x-axis and y-axis.
+Using this symmetry, only one quadrant is computed, and the remaining points are obtained by reflection:
+
+(x, y), (-x, y), (x, -y), (-x, -y)
+
+This reduces computation significantly.
+
+
+---
+
+Algorithm Steps
+
+Step 1: Input
+
+Center coordinates 
+
+Radii  and 
+
+
+
+---
+
+Step 2: Initialization (Region 1)
+
+Start point:
+
+
+x = 0,\quad y = r_y
+
+p_1 = r_y^2 - r_x^2 r_y + \frac{1}{4} r_x^2
+
+
+---
+
+Step 3: Region 1 Iteration
+
+While:
+
+2 r_y^2 x \le 2 r_x^2 y
+
+If :
+Choose pixel 
+
+Else:
+Choose pixel 
+
+
+Update decision parameter accordingly.
+
+
+---
+
+Step 4: Initialization (Region 2)
+
+Decision parameter:
+
+p_2 = r_y^2(x+0.5)^2 + r_x^2(y-1)^2 - r_x^2 r_y^2
+
+
+---
+
+Step 5: Region 2 Iteration
+
+While :
+
+If :
+Choose pixel 
+
+Else:
+Choose pixel 
+
+
+Update decision parameter.
+
+
+---
+
+Step 6: Plotting Pixels
+
+For each calculated point, plot four symmetric pixels around the center using symmetry.
+
+
+---
+
+Advantages
+
+Uses only simple arithmetic operations
+
+Efficient and fast execution
+
+Produces smooth and accurate ellipses
+
+Suitable for real-time graphics
+
+
+
+---
+
+Applications
+
+Computer graphics and game development
+
+CAD systems
+
+GUI design
+
+Scientific visualization
+
+
+
+Conclusion
+
+The Midpoint Ellipse Drawing Algorithm efficiently draws an ellipse by exploiting symmetry and decision parameters. It minimizes computational complexity while ensuring accurate raster representation, making it widely used in computer graphics applications.
+
+
