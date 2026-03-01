@@ -1,0 +1,146 @@
+## 2D Rotation — Computer Graphics Lab Theory
+
+### 1. Introduction
+
+**Rotation** is a geometric transformation that turns an object around a fixed point called the **pivot point** (usually the origin) by a specified angle.
+
+The object’s shape and size remain unchanged — only its orientation changes.
+
+---
+
+### 2. Definition
+
+Rotation moves each point of an object along a circular path around the pivot point.
+
+* Angle of rotation = ( \theta )
+* Positive angle → Counterclockwise rotation
+* Negative angle → Clockwise rotation
+
+---
+
+### 3. Mathematical Representation (About Origin)
+
+If original point is:
+
+[
+P(x, y)
+]
+
+After rotation by angle ( \theta ):
+
+[
+x' = x \cos\theta - y \sin\theta
+]
+[
+y' = x \sin\theta + y \cos\theta
+]
+
+---
+
+### 4. Matrix Representation (Homogeneous Coordinates)
+
+[
+\begin{bmatrix}
+x' \
+y' \
+1
+\end{bmatrix}
+=============
+
+\begin{bmatrix}
+\cos\theta & -\sin\theta & 0 \
+\sin\theta & \cos\theta & 0 \
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x \
+y \
+1
+\end{bmatrix}
+]
+
+---
+
+### 5. Rotation Matrix
+
+[
+R =
+\begin{bmatrix}
+\cos\theta & -\sin\theta & 0 \
+\sin\theta & \cos\theta & 0 \
+0 & 0 & 1
+\end{bmatrix}
+]
+
+---
+
+### 6. Example
+
+Rotate point ( (1, 0) ) by ( 90^\circ ) counterclockwise.
+
+Since:
+
+[
+\cos 90^\circ = 0, \quad \sin 90^\circ = 1
+]
+
+[
+x' = (1)(0) - (0)(1) = 0
+]
+[
+y' = (1)(1) + (0)(0) = 1
+]
+
+New point = **(0, 1)**
+
+---
+
+### 7. Rotation About a Fixed Point (x₀, y₀)
+
+Steps:
+
+1️⃣ Translate the object so that pivot point becomes origin
+2️⃣ Apply rotation
+3️⃣ Translate back to original position
+
+---
+
+### 8. Characteristics of Rotation
+
+* Shape and size remain unchanged
+* Distances between points remain same
+* Angles preserved
+* Orientation changes
+* Parallel lines remain parallel
+
+---
+
+### 9. Clockwise Rotation Formula
+
+For clockwise rotation:
+
+[
+x' = x \cos\theta + y \sin\theta
+]
+[
+y' = -x \sin\theta + y \cos\theta
+]
+
+---
+
+### 10. Applications
+
+* Animation and gaming
+* Object orientation in graphics
+* Robotics movement
+* Simulation systems
+* CAD applications
+
+---
+
+## Conclusion
+
+Rotation is a fundamental transformation in computer graphics that turns an object around a fixed point by a specified angle without changing its size or shape. It plays a vital role in animation, modeling, and graphical manipulation.
+
+---
+
