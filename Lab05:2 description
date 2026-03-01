@@ -1,0 +1,143 @@
+## 2D Scaling — Computer Graphics Lab Theory
+
+### 1. Introduction
+
+**Scaling** is a geometric transformation used in computer graphics to change the **size** of an object. It can either enlarge (zoom in) or shrink (zoom out) the object.
+
+Scaling changes the dimensions of an object but keeps its shape proportional (if scaling factors are equal).
+
+---
+
+### 2. Definition
+
+Scaling modifies the coordinates of an object by multiplying them with scaling factors:
+
+* ( S_x ) → Scaling factor along X-axis
+* ( S_y ) → Scaling factor along Y-axis
+
+If:
+
+* ( S_x > 1 ), object enlarges in X direction
+* ( S_x < 1 ), object shrinks in X direction
+  (Same for ( S_y ))
+
+---
+
+### 3. Mathematical Representation
+
+If original point is:
+
+[
+P(x, y)
+]
+
+After scaling:
+
+[
+x' = x \times S_x
+]
+[
+y' = y \times S_y
+]
+
+---
+
+### 4. Matrix Representation (Homogeneous Coordinates)
+
+[
+\begin{bmatrix}
+x' \
+y' \
+1
+\end{bmatrix}
+=============
+
+\begin{bmatrix}
+S_x & 0 & 0 \
+0 & S_y & 0 \
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x \
+y \
+1
+\end{bmatrix}
+]
+
+---
+
+### 5. Types of Scaling
+
+#### 1️⃣ Uniform Scaling
+
+When ( S_x = S_y )
+
+* Object enlarges or shrinks proportionally
+* Shape remains same
+
+#### 2️⃣ Non-Uniform Scaling
+
+When ( S_x \neq S_y )
+
+* Object stretches differently in X and Y directions
+* Shape may distort
+
+---
+
+### 6. Example
+
+Scale point ( (3, 4) ) by:
+
+* ( S_x = 2 )
+* ( S_y = 3 )
+
+[
+x' = 3 \times 2 = 6
+]
+[
+y' = 4 \times 3 = 12
+]
+
+New point = **(6, 12)**
+
+---
+
+### 7. Scaling About Origin
+
+By default, scaling is performed about the **origin (0,0)**.
+
+---
+
+### 8. Scaling About a Fixed Point (x₀, y₀)
+
+Steps:
+
+1. Translate object to origin
+2. Apply scaling
+3. Translate back to original position
+
+---
+
+### 9. Characteristics of Scaling
+
+* Changes size of object
+* May change shape (if non-uniform)
+* Parallel lines remain parallel
+* Angles preserved only in uniform scaling
+
+---
+
+### 10. Applications
+
+* Zooming images
+* Resizing graphics
+* Animation effects
+* Game object transformation
+
+---
+
+## Conclusion
+
+Scaling is an important transformation in computer graphics that changes the size of an object by multiplying its coordinates with scaling factors. It can be uniform or non-uniform and is widely used in graphical applications and animation.
+
+---
