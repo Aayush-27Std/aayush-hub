@@ -1,0 +1,143 @@
+## Rotation About X-Axis (3D Rotation) — Computer Graphics Lab Theory
+
+### 1. Introduction
+
+**Rotation about the X-axis** is a 3D transformation in computer graphics where an object is rotated around the **X-axis** by a specified angle ( \theta ).
+
+During this rotation:
+
+* The **x-coordinate remains unchanged**
+* The **y and z coordinates change**
+
+---
+
+### 2. Concept
+
+When a point rotates about the X-axis:
+
+* It moves in the **YZ-plane**
+* The X value stays constant
+
+So if a point is:
+
+[
+P(x, y, z)
+]
+
+After rotation by angle ( \theta ):
+
+[
+P'(x', y', z')
+]
+
+---
+
+### 3. Mathematical Formula
+
+[
+x' = x
+]
+
+[
+y' = y \cos\theta - z \sin\theta
+]
+
+[
+z' = y \sin\theta + z \cos\theta
+]
+
+---
+
+### 4. Matrix Representation
+
+[
+\begin{bmatrix}
+x' \
+y' \
+z' \
+1
+\end{bmatrix}
+=============
+
+\begin{bmatrix}
+1 & 0 & 0 & 0 \
+0 & \cos\theta & -\sin\theta & 0 \
+0 & \sin\theta & \cos\theta & 0 \
+0 & 0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x \
+y \
+z \
+1
+\end{bmatrix}
+]
+
+---
+
+### 5. Rotation Matrix About X-Axis
+
+[
+R_x =
+\begin{bmatrix}
+1 & 0 & 0 & 0 \
+0 & \cos\theta & -\sin\theta & 0 \
+0 & \sin\theta & \cos\theta & 0 \
+0 & 0 & 0 & 1
+\end{bmatrix}
+]
+
+---
+
+### 6. Example
+
+Rotate point ( (2, 1, 0) ) by ( 90^\circ ) about X-axis.
+
+Since:
+
+[
+\cos 90^\circ = 0, \quad \sin 90^\circ = 1
+]
+
+[
+x' = 2
+]
+
+[
+y' = (1)(0) - (0)(1) = 0
+]
+
+[
+z' = (1)(1) + (0)(0) = 1
+]
+
+New point = **(2, 0, 1)**
+
+---
+
+### 7. Characteristics
+
+* X coordinate remains constant
+* Rotation occurs in YZ-plane
+* Shape and size remain unchanged
+* Distance between points remains same
+* Orientation changes
+
+---
+
+### 8. Applications
+
+* 3D animation
+* Game development
+* Robotics
+* Virtual reality
+* CAD modeling
+
+---
+
+## Conclusion
+
+Rotation about the X-axis is a 3D transformation where the object rotates around the X-axis by an angle ( \theta ). The X-coordinate remains unchanged while Y and Z coordinates are modified using trigonometric functions. It is widely used in 3D graphics and modeling applications.
+
+---
+
