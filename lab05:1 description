@@ -1,0 +1,141 @@
+## 2D Translation — Computer Graphics Lab Theory
+
+### 1. Introduction
+
+**2D Translation** is a basic geometric transformation used in computer graphics to move (shift) an object from one position to another in a 2-dimensional plane without changing its shape, size, or orientation.
+
+It simply adds a constant value to the coordinates of every point of the object.
+
+---
+
+### 2. Definition
+
+Translation moves an object by a specified distance along the **x-axis** and **y-axis**.
+
+If a point is moved by:
+
+* ( t_x ) units along X-axis
+* ( t_y ) units along Y-axis
+
+then the transformation is called **2D translation**.
+
+---
+
+### 3. Mathematical Representation
+
+If original point is:
+
+[
+P(x, y)
+]
+
+After translation:
+
+[
+P'(x', y')
+]
+
+[
+x' = x + t_x
+]
+[
+y' = y + t_y
+]
+
+---
+
+### 4. Matrix Form (Homogeneous Coordinates)
+
+In computer graphics, transformations are performed using matrices.
+
+[
+\begin{bmatrix}
+x' \
+y' \
+1
+\end{bmatrix}
+=============
+
+\begin{bmatrix}
+1 & 0 & t_x \
+0 & 1 & t_y \
+0 & 0 & 1
+\end{bmatrix}
+\begin{bmatrix}
+x \
+y \
+1
+\end{bmatrix}
+]
+
+---
+
+### 5. Translation Matrix
+
+[
+T =
+\begin{bmatrix}
+1 & 0 & t_x \
+0 & 1 & t_y \
+0 & 0 & 1
+\end{bmatrix}
+]
+
+---
+
+### 6. Example
+
+Translate point ( (2, 3) ) by:
+
+* ( t_x = 4 )
+* ( t_y = 2 )
+
+New coordinates:
+
+[
+x' = 2 + 4 = 6
+]
+[
+y' = 3 + 2 = 5
+]
+
+So, new point = **(6, 5)**
+
+---
+
+### 7. Translation of a Polygon
+
+To translate a shape:
+
+1. Take all vertices of the object
+2. Add ( t_x ) to each x-coordinate
+3. Add ( t_y ) to each y-coordinate
+4. Join the new points to form the translated shape
+
+---
+
+### 8. Characteristics of 2D Translation
+
+* Shape and size remain unchanged
+* Orientation remains same
+* Parallel lines remain parallel
+* Distances between points remain constant
+* Only position changes
+
+---
+
+### 9. Applications
+
+* Moving objects in animations
+* Scrolling in games
+* Dragging objects on screen
+* Object positioning in graphics software
+
+---
+
+## Conclusion
+
+2D translation is a fundamental transformation in computer graphics used to shift objects to a new position by adding constant values to their coordinates. It preserves the object's size, shape, and orientation while changing only its location.
+
+---
+
